@@ -2,8 +2,8 @@
 
 namespace LaravelFeature\Featurable;
 
-use LaravelFeature\Model\Feature as FeatureModel;
 use LaravelFeature\Model\Feature;
+use LaravelFeature\Model\Feature as FeatureModel;
 
 trait Featurable
 {
@@ -21,6 +21,6 @@ trait Featurable
 
     public function features()
     {
-        return $this->morphToMany(Feature::class, 'featurable');
+        return $this->morphToMany(Feature::class, 'featurable')->withPivot(['limit', 'used']);
     }
 }

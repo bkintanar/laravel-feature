@@ -13,7 +13,7 @@ interface FeatureRepositoryInterface
 
     public function findByName($featureName);
 
-    public function enableFor($featureName, FeaturableInterface $featurable);
+    public function enableFor($featureName, FeaturableInterface $featurable, array $custom = []);
 
     public function disableFor($featureName, FeaturableInterface $featurable);
 

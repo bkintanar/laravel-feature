@@ -3,8 +3,8 @@
 namespace LaravelFeature\Domain;
 
 use LaravelFeature\Domain\Model\Feature;
-use LaravelFeature\Domain\Repository\FeatureRepositoryInterface;
 use LaravelFeature\Featurable\FeaturableInterface;
+use LaravelFeature\Domain\Repository\FeatureRepositoryInterface;
 
 class FeatureManager
 {
@@ -13,6 +13,7 @@ class FeatureManager
 
     /**
      * FeatureManager constructor.
+     *
      * @param FeatureRepositoryInterface $repository
      */
     public function __construct(FeatureRepositoryInterface $repository)
@@ -68,9 +69,9 @@ class FeatureManager
         return $feature->isEnabled();
     }
 
-    public function enableFor($featureName, FeaturableInterface $featurable)
+    public function enableFor($featureName, FeaturableInterface $featurable, array $custom = [])
     {
-        $this->repository->enableFor($featureName, $featurable);
+        $this->repository->enableFor($featureName, $featurable, $custom);
     }
 
     public function disableFor($featureName, FeaturableInterface $featurable)
